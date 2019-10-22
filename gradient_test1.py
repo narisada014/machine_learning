@@ -44,6 +44,8 @@ xmesh, ymesh = np.meshgrid(xs, ys)
 xx = np.r_[xmesh.reshape(1, -1), ymesh.reshape(1, -1)]
 levels = [-3, -2.9, -2.8, -2.6, -2.4, -2.2, -2, -1, 0, 1, 2, 3, 4]
 
+# http://pynote.hatenablog.com/entry/matplotlib-contour
+# contourは等高線描画の関数
 plt.contour(xs, ys, f(xx).reshape(xmesh.shape),
             levels=levels,
             colors="k", linestyles="dotted")
