@@ -1,10 +1,24 @@
-from ridge import linearreg
+from ridge import ridge
 import numpy as np
 import matplotlib.pyplot as plt
 
+# 単純な線形回帰
+x = np.array([1, 2, 4, 6, 7])
+y = np.array([1, 3, 3, 5, 4])
+model = ridge.RidgeRegression(1.)
+model.fit(x, y)
+b, a = model.w_
 
+plt.scatter(x, y, color="k")
+xmax = x.max()
+plt.plot([0, xmax], [b, b + a * xmax], color="k")
+plt.show()
+
+
+# 100行2列で多次元の特徴量を考えた場合
 n = 100
 scale = 10
+
 np.random.seed(0)
 X = np.random.random((n, 2)) * scale
 w0 = 1
@@ -12,13 +26,8 @@ w1 = 2
 w2 = 3
 y = w0 + w1 * X[:, 0] + w2 * X[:, 1] + np.random.randn(n)
 
-model = linearreg.LinearRegression()
+model = ridge.RidgeRegression(1.)
 model.fit(X, y)
-print("係数:", model.w_)
-# predictの引数はベクトルか行列である
-# 上記のy式でXはw1とw2にかかっており、このyで学習した、
-# モデルに行列を渡すなら、2列あれば良いと考えられるので以下のように2次元ベクトルを引数として計算してやる。
-print("(1, 1)に対する予測値:", model.predict(np.array([1, 1])))
 
 # ここ以降は可視化のコードになる。
 xmesh, ymesh = np.meshgrid(np.linspace(0, scale, 20),

@@ -1,4 +1,4 @@
-import linearreg
+from ridge import linearreg
 import numpy as np
 import csv
 
