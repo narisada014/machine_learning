@@ -74,10 +74,11 @@ for _ in range(n):
     y_lin = lin.predict(xx.reshape(-1, 1))
     y_lin_sum += y_lin
 
+print(y_poly_sum)
 # 真の値
 plt.plot(xx, f(xx), label="truth",
          color="k", linestyle="solid")
-# 多項式回帰の予測値
+# 多項式回帰の予測値(n: 回数 で平均するので真の値と数値のレンジが揃う)
 plt.plot(xx, y_poly_sum / n, label="polynomial reg",
          color="k", linestyle="dotted")
 # 線形回帰の予測値
