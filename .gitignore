@@ -1,3 +1,10 @@
 .idea/*
 .ipynb_checkpoints
 __pycache__
+
+learning_environment_sample/pgdata/*
+
+learning_environment_sample_2/pgdata/*
+learning_environment_sample/.env
+
+learning_environment_sample_2/.env
