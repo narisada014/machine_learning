@@ -18,7 +18,7 @@ class LogisticRegression:
 
     def fit(self, X, y):
         self.w_ = self.random_state.randn(X.shape[1] + 1)
-        Xtil = np.c_[np.ones(X.shape[0], X)]  # w0のための1のみの列を作成
+        Xtil = np.c_[np.ones(X.shape[0]), X]  # w0のための1のみの列を作成し結合
         diff = np.inf
         w_prev = self.w_
         iter = 0
